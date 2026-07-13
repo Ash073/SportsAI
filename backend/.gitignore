@@ -1,0 +1,17 @@
+# Data folders
+data/
+uploads/
+videos/
+
+# Python caching
+__pycache__/
+*.pyc
+
+# Loose wheel files
+*.whl
+
+# Explicitly allow models/frozen
+!models/frozen/
+
+# Environment variables
+.env

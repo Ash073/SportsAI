@@ -1,0 +1,26 @@
+# Core API dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+requests==2.31.0
+pydantic>=2.0.0
+
+# AI Integration
+openai>=1.3.0
+
+# Database dependencies
+psycopg2-binary>=2.9.9
+sqlalchemy>=2.0.30
+alembic==1.12.0
+
+# AI/ML dependencies
+opencv-python>=4.8.1.78
+numpy>=1.24.3
+ultralytics
+# Additional utilities
+scipy>=1.11.1
+torch==2.12.1
+torchvision==0.27.1
+joblib>=1.3.2

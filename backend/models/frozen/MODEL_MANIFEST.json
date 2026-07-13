@@ -1,0 +1,26 @@
+{
+  "pushup_count_model.joblib": {
+    "description": "RandomForestRegressor for counting pushups based on normalized features",
+    "framework": "scikit-learn",
+    "date_frozen": "2026-07-08",
+    "validation_metric": "MAE"
+  },
+  "pushup_form_model.joblib": {
+    "description": "RandomForestClassifier for evaluating pushup form (correct/wrong)",
+    "framework": "scikit-learn",
+    "date_frozen": "2026-07-08",
+    "validation_metric": "Accuracy"
+  },
+  "feature_scaler.joblib": {
+    "description": "StandardScaler for normalizing features before model inference",
+    "framework": "scikit-learn",
+    "date_frozen": "2026-07-08"
+  },
+  "yolov8n-pose.pt": {
+    "description": "Pre-trained YOLOv8 Nano Pose model for pose estimation",
+    "framework": "ultralytics (PyTorch)",
+    "date_frozen": "2026-07-08",
+    "input_shape": "Variable, typically resized to 256 for optimization",
+    "output_shape": "Keypoints format"
+  }
+}

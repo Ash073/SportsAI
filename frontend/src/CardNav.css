@@ -1,0 +1,500 @@
+/* Enhanced CardNav Styles with Modern Design */
+
+.card-nav-container {
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 850px;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.card-nav-background {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-nav.open .card-nav-background {
+  opacity: 1;
+}
+
+.card-nav {
+  display: block;
+  height: 70px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  will-change: height;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-nav-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(59, 130, 246, 0.3),
+    transparent,
+    rgba(139, 69, 19, 0.3),
+    transparent
+  );
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  animation: glow-rotate 3s linear infinite;
+}
+
+.card-nav:hover .card-nav-glow {
+  opacity: 1;
+}
+
+@keyframes glow-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.card-nav-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.hamburger-menu {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 4px;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hamburger-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 69, 19, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.hamburger-menu:hover::before {
+  opacity: 1;
+}
+
+.hamburger-menu:hover {
+  transform: scale(1.05);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, currentColor, rgba(59, 130, 246, 0.8));
+  transform-origin: center;
+  border-radius: 1px;
+  will-change: transform;
+}
+
+.hamburger-line:nth-child(2) {
+  width: 20px;
+}
+
+.hamburger-line:nth-child(3) {
+  width: 16px;
+}
+
+.hamburger-menu.open .hamburger-line:first-child {
+  transform: translateY(6px) rotate(45deg);
+  width: 24px;
+}
+
+.hamburger-menu.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+  transform: translateY(-6px) rotate(-45deg);
+  width: 24px;
+}
+
+/* Add CSS transitions back for hamburger since it needs instant feedback */
+.hamburger-line {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-wrapper {
+  position: relative;
+  padding: 8px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 32px;
+  display: block;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.card-nav-cta-button {
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0 1.25rem;
+  height: 44px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  will-change: transform;
+}
+
+/* Remove CSS transitions where GSAP handles animations */
+.card-nav-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.button-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  pointer-events: none;
+}
+
+.card-nav-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70px;
+  bottom: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-nav.open .card-nav-content {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-card {
+  height: 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 0.875rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 16px;
+  gap: 12px;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Remove CSS animations since we're using GSAP */
+
+.nav-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.nav-card:hover::before {
+  opacity: 1;
+}
+
+.nav-card:hover {
+  /* GSAP handles hover animations now */
+}
+
+.nav-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.nav-card:hover .nav-card-overlay {
+  opacity: 1;
+}
+
+.nav-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-card-label {
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-card-label span {
+  position: relative;
+  z-index: 2;
+}
+
+.nav-card-label-underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, currentColor, rgba(255, 255, 255, 0.5));
+  border-radius: 2px;
+  /* GSAP handles the width animation */
+}
+
+.nav-card-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-card-link {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-card-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-card-link:hover::before {
+  left: 100%;
+}
+
+.nav-card-link:hover {
+  /* GSAP handles hover animations */
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-card-link-text {
+  flex: 1;
+}
+
+.nav-card-link-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  will-change: transform;
+}
+
+.nav-card-link:hover .nav-card-link-icon {
+  /* GSAP handles icon animations */
+  opacity: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .card-nav-container {
+    width: 95%;
+    top: 1rem;
+  }
+
+  .card-nav-top {
+    padding: 0.75rem 1rem;
+    justify-content: space-between;
+  }
+
+  .hamburger-menu {
+    order: 2;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    order: 1;
+  }
+
+  .card-nav-cta-button {
+    display: none;
+  }
+
+  .card-nav-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 1rem;
+    justify-content: flex-start;
+  }
+
+  .nav-card {
+    height: auto;
+    min-height: 80px;
+    flex: 1 1 auto;
+    padding: 16px;
+  }
+
+  .nav-card-label {
+    font-size: 20px;
+  }
+
+  .nav-card-link {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .card-nav {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-nav-top {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+  }
+
+  .logo-wrapper {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  }
+
+  .nav-card-link {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-card-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.hamburger-menu:focus-visible,
+.card-nav-cta-button:focus-visible,
+.nav-card-link:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
