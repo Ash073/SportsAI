@@ -24,7 +24,7 @@ function LoginPage({ onLogin, onNavigate }: LoginPageProps) {
     
     try {
       // Make actual API call to login
-      const response = await fetch('http://localhost:8004/login', {
+      const response = await fetch('https://sports-ai-a2xm.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

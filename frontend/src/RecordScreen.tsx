@@ -45,7 +45,7 @@ export default function RecordScreen({ onNavigate, userId, isAuthenticated }: Re
 
     try {
       const token = localStorage.getItem('ae_token');
-      const response = await axios.post('http://localhost:8004/upload', formData, {
+      const response = await axios.post('https://sports-ai-a2xm.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           ...(token ? { 'Authorization': `Bearer ${token}` } : {})

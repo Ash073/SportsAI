@@ -123,9 +123,9 @@ function ProfilePage({ username, userId, onNavigate }: ProfilePageProps) {
       
       // Fetch profile, stats, and recent workouts
       const [profileRes, statsRes, workoutsRes] = await Promise.all([
-        fetch(`http://localhost:8004/profile/${userId}`),
-        fetch(`http://localhost:8004/stats/${userId}?days=30`),
-        fetch(`http://localhost:8004/workouts/${userId}?limit=10`)
+        fetch(`https://sports-ai-a2xm.onrender.com/profile/${userId}`),
+        fetch(`https://sports-ai-a2xm.onrender.com/stats/${userId}?days=30`),
+        fetch(`https://sports-ai-a2xm.onrender.com/workouts/${userId}?limit=10`)
       ]);
 
       if (profileRes.ok) {

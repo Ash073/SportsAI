@@ -37,7 +37,7 @@ function SignupPage({ onSignup, onNavigate }: SignupPageProps) {
     
     try {
       // Make actual API call to register
-      const response = await fetch('http://localhost:8004/register', {
+      const response = await fetch('https://sports-ai-a2xm.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

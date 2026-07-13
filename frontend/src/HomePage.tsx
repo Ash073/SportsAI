@@ -23,7 +23,7 @@ function HomePage({ onNavigate, username, userId }: HomePageProps) {
     const fetchLatest = async () => {
       if (userId) {
         try {
-          const res = await fetch(`http://localhost:8004/workouts/${userId}?limit=1`);
+          const res = await fetch(`https://sports-ai-a2xm.onrender.com/workouts/${userId}?limit=1`);
           if (res.ok) {
             const data = await res.json();
             if (data.workouts && data.workouts.length > 0) {
